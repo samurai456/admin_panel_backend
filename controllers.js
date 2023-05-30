@@ -18,7 +18,11 @@ const getStandartResponse = async (email, password) =>{
     const resp = {status: 'not-found', allData: []};
     if (currUser && currUser.password === sha256(password)){
         resp.status = currUser.status;
-        if (resp.status === 'active') resp.allData = allData;
+        if (resp.status === 'active') {
+            currUser.lastLoginDate = new Date();
+            currUser.save();
+            resp.allData = allData;
+        }
     }
     return resp;
 }
