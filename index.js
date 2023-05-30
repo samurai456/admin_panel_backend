@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const router = require('./router.js');
 const path = require('path');
 
-const dbUrl = "mongodb+srv://user:user34567@cluster0.oez3z3j.mongodb.net/?retryWrites=true&w=majority"
+const dbUrl = "mongodb+srv://<login>:<password>@cluster0.dsa44a.mongodb.net/?retryWrites=true&w=majority"
 
 const app = express();
 app.use(express.json());
