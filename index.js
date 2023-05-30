@@ -10,9 +10,13 @@ app.use(express.json());
 app.use('/api', router);
 app.use('/assets',express.static(path.join(__dirname, '/dist/assets')))
 
-app.get('/', (req, res)=>{
+const callback = (req, res) =>{
     res.sendFile(path.join(__dirname, '/dist/index.html'));
-});
+}
+
+app.get('/', callback);
+app.get('/authorization', callback);
+app.get('/registration', callback);
 
 async function startApp(){
     try {
